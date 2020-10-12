@@ -9,7 +9,7 @@ before_install:
 
 
 
-
+language: generic
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
