@@ -1,11 +1,13 @@
-  
+
 sudo: required
 services:
   - docker
 
-  before_install:
-    - docker build -t si3mshady/journal .
-    - docker run -d -p 27017:27017  -v ~/data:/data/db mongo
+before_install:
+  - docker build -t si3mshady/pd .
+  - docker run -d -p 27017:27017  -v ~/data:/data/db mongo
+
+
 
 
 deploy:
