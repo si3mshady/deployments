@@ -4,6 +4,8 @@ services:
   - docker
 
 before_install:
+  - sudo service docker stop
+  - sudo service docker start
   - docker build -t si3mshady/journal .
   - docker run -d -p 27017:27017  -v ~/data:/data/db mongo
 
@@ -18,7 +20,7 @@ deploy:
   bucket_name: "deployment-sandbox-nodejs"
   bucket_path: "myjournal"
   on:
-    branch: developer
+    branch: main
 
   access_key_id:
     secure: "$AWS_ACCESS_KEY"
