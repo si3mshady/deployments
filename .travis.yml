@@ -3,9 +3,11 @@ sudo: required
 services:
   - docker
 
-script:
-  - docker-compose build
-  - docker-compose up
+  before_install:
+    - docker build -t si3mshady/journal .
+    - docker run -d -p 27017:27017  -v ~/data:/data/db mongo
+
+
 
 
 deploy:
